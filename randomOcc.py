@@ -18,7 +18,7 @@ def readToDict():
             if (job != 'Total'): occs[job] = percent
 
 def pickWeighted():
-    print choice([occs[k] for k in occs])
+    print ""
 
 def getRandOccupation():
     readToDict()
