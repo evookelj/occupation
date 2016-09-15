@@ -3,7 +3,7 @@
 #Mr. DW
 #09.15.16
 
-import random
+from random import choice
 import csv
 
 occs = {}
@@ -14,8 +14,14 @@ def readToDict():
         reader = csv.DictReader(csvfile)
         for row in reader:
             job = row['Job Class']
-            if (job != 'Total'):
-                occs[job] = row['Percentage']             
-                print job + ": " + occs[job]
+            percent = float(row['Percentage'])
+            if (job != 'Total'): occs[job] = percent
 
-readToDict()
+def pickWeighted():
+    print choice([occs[k] for k in occs])
+
+def getRandOccupation():
+    readToDict()
+    pickWeighted()
+
+getRandOccupation()
