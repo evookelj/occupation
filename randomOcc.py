@@ -6,9 +6,16 @@
 import random
 import csv
 
+occs = {}
+
 def readToDict():
-    with open('occupation.csv') as csvfile:
-    reader = csv.DictReader(csvfile)
-    for row in reader:
-        row.split(',')
-        occs[row[0]] = row[1]
+    import csv
+    with open('occupations.csv') as csvfile:
+        reader = csv.DictReader(csvfile)
+        for row in reader:
+            job = row['Job Class']
+            if (job != 'Total'):
+                occs[job] = row['Percentage']             
+                print job + ": " + occs[job]
+
+readToDict()
